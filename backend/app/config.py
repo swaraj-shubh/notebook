@@ -1,15 +1,14 @@
 # app/config.py
-from pydantic import AnyUrl
-from pydantic_settings import BaseSettings
-
-class Settings(BaseSettings):
-    MONGO_URI: AnyUrl = "mongodb://localhost:27017"
-    MONGO_DB: str = "notebook"
-    ORIGINS: str = "*"   # Accept string from .env, not list
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = False
+class Settings:
+    MONGO_URI = "mongodb+srv://username:password@cluster0.mongodb.net/notebook?retryWrites=true&w=majority"
+    MONGO_DB = "notebook"
+    
+    # 🔥 ONLY allow your frontend domains
+    ORIGINS = [
+        "https://notebook.shubhh.xyz",
+        "https://notebook-two-psi.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
 
 settings = Settings()
