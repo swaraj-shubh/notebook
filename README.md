@@ -290,7 +290,7 @@ curl -X POST "http://localhost:8000/api/notebooks/{notebook_id}/notes/" \
    - Configure reverse proxy for API calls
    - Set environment variables for production API URL
 
-### Docker Deployment (Optional)
+### Docker Deployment
 
 Create `docker-compose.yml`:
 ```yaml
