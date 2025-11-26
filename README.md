@@ -290,7 +290,7 @@ curl -X POST "http://localhost:8000/api/notebooks/{notebook_id}/notes/" \
    - Configure reverse proxy for API calls
    - Set environment variables for production API URL
 
-### Docker Deployment
+### Docker Deployment (Optional)
 
 Create `docker-compose.yml`:
 ```yaml
@@ -383,22 +383,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 
 
-
-
-**if do not work, re-install**
-
-'''
-rm -rf notebook_venv
-python3 -m venv notebook_venv
-source notebook_venv/bin/activate
-which python
-which pip
-'''
-
-'''
-pip install fastapi uvicorn motor pymongo python-dotenv --break-system-packages
-'''
-
-'''
-uvicorn app.main:app --reload --port 8000
-'''
