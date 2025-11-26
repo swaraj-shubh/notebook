@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "@/api/notebooks";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
 
   const createNotebook = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/api/notebooks/", newNotebook);
+      await API.post("/notebooks/", newNotebook);
       setShowCreateModal(false);
       setNewNotebook({ title: "", description: "" });
       fetchNotebooks(); // Refresh the list
@@ -22,7 +23,7 @@ const Home = () => {
 
   const fetchNotebooks = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/notebooks");
+        const response = await API.get("/notebooks");
         setData(response.data);
         console.log("Fetched notebooks:", response.data);
       } catch (error) {
@@ -34,7 +35,7 @@ const Home = () => {
     e.stopPropagation(); // Prevent navigation when clicking delete
     if (window.confirm("Are you sure you want to delete this notebook?")) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/notebooks/${notebookId}`);
+        await API.delete(`/notebooks/${notebookId}`);
         fetchNotebooks(); // Refresh the list
       } catch (error) {
         console.error("Error deleting notebook:", error);

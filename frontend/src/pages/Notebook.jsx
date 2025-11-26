@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "@/api/notebooks";
 
 const Notebook = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const Notebook = () => {
   useEffect(() => {
     const fetchNotebook = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:8000/api/notebooks/${id}`);
+        const res = await API.get(`/notebooks/${id}`);
         setNotebook(res.data);
       } catch (err) {
         console.error("Error fetching notebook:", err);
@@ -69,13 +70,13 @@ const Notebook = () => {
         return;
       }
 
-      await axios.patch(
-        `http://127.0.0.1:8000/api/notebooks/${id}/notes/${selectedNote._id}`,
+      await API.patch(
+        `/notebooks/${id}/notes/${selectedNote._id}`,
         payload
       );
 
       // Update local state - refetch the notebook to get updated data
-      const res = await axios.get(`http://127.0.0.1:8000/api/notebooks/${id}`);
+      const res = await API.get(`/notebooks/${id}`);
       setNotebook(res.data);
       
       // Update selected note with new data
@@ -96,12 +97,12 @@ const Notebook = () => {
     }
 
     try {
-      await axios.delete(
-        `http://127.0.0.1:8000/api/notebooks/${id}/notes/${selectedNote._id}`
+      await API.delete(
+        `/notebooks/${id}/notes/${selectedNote._id}`
       );
       
       // Refetch notebook to get updated list
-      const res = await axios.get(`http://127.0.0.1:8000/api/notebooks/${id}`);
+      const res = await API.get(`/notebooks/${id}`);
       setNotebook(res.data);
       setSelectedNote(null);
       alert("🗑️ Note deleted successfully!");
@@ -113,7 +114,7 @@ const Notebook = () => {
 
   const createNote = async () => {
     try {
-      await axios.post(`http://127.0.0.1:8000/api/notebooks/${id}/notes/`, {
+      await API.post(`/notebooks/${id}/notes/`, {
         title: newNote.title,
         content: newNote.content,
         tags: newNote.tags
@@ -121,7 +122,7 @@ const Notebook = () => {
       setShowCreateNoteModal(false);
       setNewNote({ title: "", content: "", tags: [] });
       // Refresh notebook data
-      const res = await axios.get(`http://127.0.0.1:8000/api/notebooks/${id}`);
+      const res = await API.get(`/notebooks/${id}`);
       setNotebook(res.data);
       alert("✅ Note created successfully!");
     } catch (err) {
