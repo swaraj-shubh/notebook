@@ -10,9 +10,13 @@ from .routes import notes as notes_router
 app = FastAPI(title="Notebook API")
 
 # CORS
+origins = settings.ORIGINS
+if isinstance(origins, str):
+    origins = origins.split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ORIGINS,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
