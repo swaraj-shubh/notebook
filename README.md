@@ -2,7 +2,7 @@
 
 A modern, full-stack note organization application with embedded document architecture, built with FastAPI and React.
 
-![Notebook App](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Notebook+App)
+- 🚀 **Deployment:** [notebook.shubhh.xyz](https://notebook.shubhh.xyz/)
 
 ## 🌟 Features
 
