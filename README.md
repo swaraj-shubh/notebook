@@ -51,8 +51,8 @@ A modern, full-stack note organization application with embedded document archit
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/notebook-app.git
-cd notebook-app
+git clone https://github.com/swaraj-shubh/notebook.git
+cd notebook
 ```
 
 2. **Backend Setup**
@@ -234,10 +234,6 @@ We welcome contributions! Please feel free to submit pull requests or open issue
 - Frontend: Use ESLint and Prettier configuration
 - Commit messages: Use conventional commit format
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - FastAPI for the excellent documentation and performance
@@ -248,9 +244,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions or support, please contact:
-- Email: your-email@example.com
-- GitHub: [Notebook App Repository](https://github.com/your-username/notebook-app)
+- Email: shubhh.ab@example.com
+- GitHub: [Notebook App Repository](https://github.com/swaraj-shubh/notebook.git)
 
 ---
 
-**Built with ❤️ by Shubham Verma**
+**Built with ❤️ for easy jotting down**
