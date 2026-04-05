@@ -352,12 +352,9 @@ const Notebook = () => {
                 </div>
               )}
 
-              <div 
-                className="text-gray-700 whitespace-pre-line text-lg leading-relaxed prose max-w-none"
-                dangerouslySetInnerHTML={{ 
-                  __html: DOMPurify.sanitize(selectedNote.content.replace(/\n/g, '<br>')) 
-                }}
-              />
+<div className="text-gray-700 whitespace-pre-wrap text-lg leading-relaxed prose max-w-none">
+  {selectedNote.content}
+</div>
 
               <div className="text-sm text-gray-500 mt-8 pt-4 border-t">
                 <p>

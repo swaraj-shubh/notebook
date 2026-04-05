@@ -143,6 +143,7 @@ const Home = () => {
   const ErrorDisplay = useMemo(() => (
     <div className="p-4 bg-red-50 border border-red-200 rounded-lg mb-6" data-testid="error-display">
       <p className="text-red-700 mb-2">Error: {error}</p>
+      <p className="text-red-700 mb-2">or kindly wait for a minute to fetch the data</p>
       <button 
         onClick={fetchNotebooks}
         className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"

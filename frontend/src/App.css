@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Add these styles to your existing App.css */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
