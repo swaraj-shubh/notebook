@@ -328,7 +328,7 @@ const Notebook = () => {
                   <button
                     // onClick={handleEdit}
                     onClick={() => {
-                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                      window.location.href = "https://technoseek-hint.vercel.app/47839tboxc8gt7x8xt5xontgbks";
                     }} 
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                     aria-label="Edit note"
@@ -338,7 +338,7 @@ const Notebook = () => {
                   <button
                     // onClick={handleDeleteNote}
                     onClick={() => {
-                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                      window.location.href = "https://technoseek-hint.vercel.app/47839tboxc8gt7x8xt5xontgbks";
                     }}                    
                     disabled={operationLoading}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"

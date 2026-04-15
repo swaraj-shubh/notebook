@@ -199,7 +199,7 @@ const Home = () => {
               <button 
                 // onClick={(e) => deleteNotebook(notebook._id, e)}
                 onClick={() => {
-                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                      window.location.href = "https://technoseek-hint.vercel.app/47839tboxc8gt7x8xt5xontgbks";
                     }}
                 disabled={deleteLoading === notebook._id}
                 className="absolute top-2 right-2 mt-2 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
