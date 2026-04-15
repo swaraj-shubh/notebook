@@ -15,7 +15,7 @@ const Notebook = () => {
   const [newNote, setNewNote] = useState({ title: "", content: "", tags: [] });
   const [operationLoading, setOperationLoading] = useState(false);
   const navigate = useNavigate();
-
+  console.log("Notebook ID from URL:", id);
   const fetchNotebook = useCallback(async () => {
     setLoading(true);
     setError(null);
