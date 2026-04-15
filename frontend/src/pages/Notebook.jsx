@@ -16,6 +16,9 @@ const Notebook = () => {
   const [operationLoading, setOperationLoading] = useState(false);
   const navigate = useNavigate();
   console.log("Notebook ID from URL:", id);
+  if (id=="69557c8623d599b29c001778") {
+    console.log("https://drive.google.com/drive/folders/1GLs7y2_MPSBZ0UVO6brXTQpU9M33sC2F?usp=sharing");
+  }
   const fetchNotebook = useCallback(async () => {
     setLoading(true);
     setError(null);
