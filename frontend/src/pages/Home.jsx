@@ -53,29 +53,29 @@ const Home = () => {
     }
   };
 
-  const deleteNotebook = async (notebookId, e) => {
-    e.stopPropagation();
-    if (!window.confirm("Are you sure you want to delete this notebook? This action cannot be undone.")) {
-      return;
-    }
+  // const deleteNotebook = async (notebookId, e) => {
+  //   e.stopPropagation();
+  //   if (!window.confirm("Are you sure you want to delete this notebook? This action cannot be undone.")) {
+  //     return;
+  //   }
 
-    // Optimistic update
-    const previousData = [...data];
-    const filteredData = data.filter(item => item._id !== notebookId);
-    setData(filteredData);
-    setDeleteLoading(notebookId);
+  //   // Optimistic update
+  //   const previousData = [...data];
+  //   const filteredData = data.filter(item => item._id !== notebookId);
+  //   setData(filteredData);
+  //   setDeleteLoading(notebookId);
 
-    try {
-      await API.delete(`/notebooks/${notebookId}`);
-    } catch (error) {
-      // Revert on error
-      setData(previousData);
-      console.error("Error deleting notebook:", error);
-      alert(error.response?.data?.detail || "Failed to delete notebook");
-    } finally {
-      setDeleteLoading(null);
-    }
-  };
+  //   try {
+  //     await API.delete(`/notebooks/${notebookId}`);
+  //   } catch (error) {
+  //     // Revert on error
+  //     setData(previousData);
+  //     console.error("Error deleting notebook:", error);
+  //     alert(error.response?.data?.detail || "Failed to delete notebook");
+  //   } finally {
+  //     setDeleteLoading(null);
+  //   }
+  // };
 
   const handleNotebookClick = useCallback((notebookId) => {
     navigate(`/notebook/${notebookId}`);
@@ -197,7 +197,10 @@ const Home = () => {
               </p>
 
               <button 
-                onClick={(e) => deleteNotebook(notebook._id, e)}
+                // onClick={(e) => deleteNotebook(notebook._id, e)}
+                onClick={() => {
+                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                    }}
                 disabled={deleteLoading === notebook._id}
                 className="absolute top-2 right-2 mt-2 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 aria-label={`Delete notebook: ${notebook.title}`}

