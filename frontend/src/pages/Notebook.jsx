@@ -18,7 +18,7 @@ const Notebook = () => {
   const navigate = useNavigate();
   console.log("Notebook ID from URL:", id);
   if (id=="69557c8623d599b29c001778") {
-    console.log("https://drive.google.com/drive/folders/1GLs7y2_MPSBZ0UVO6brXTQpU9M33sC2F?usp=sharing");
+    console.log(import.meta.env.VITE_KYA_DHUND_RAHE);
   }
   const fetchNotebook = useCallback(async () => {
     setLoading(true);
@@ -237,9 +237,9 @@ const Notebook = () => {
       
       <h1 className="text-2xl font-bold mb-2 truncate">{notebook.title}</h1>
       <p className="text-gray-600 mb-2">{notebook.description || "No description"}</p>
-      <p className="text-sm text-gray-500 mb-6">
+      {/* <p className="text-sm text-gray-500 mb-6">
         Created on: {new Date(notebook.created_at).toLocaleString("en-IN")}
-      </p>
+      </p> */}
       
       <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-semibold">🗒️ Notes</h2>
@@ -282,12 +282,12 @@ const Notebook = () => {
                 </div>
               )}
 
-              <div className="text-xs text-gray-500">
+              {/* <div className="text-xs text-gray-500">
                 <p>Created: {new Date(note.created_at).toLocaleDateString("en-IN")}</p>
                 {note.updated_at && (
                   <p>Updated: {new Date(note.updated_at).toLocaleDateString("en-IN")}</p>
                 )}
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
@@ -328,7 +328,7 @@ const Notebook = () => {
                   <button
                     // onClick={handleEdit}
                     onClick={() => {
-                      window.location.href = "https://technoseek-hint.vercel.app/47839tboxc8gt7x8xt5xontgbks";
+                      window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
                     }} 
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                     aria-label="Edit note"
@@ -338,7 +338,7 @@ const Notebook = () => {
                   <button
                     // onClick={handleDeleteNote}
                     onClick={() => {
-                      window.location.href = "https://technoseek-hint.vercel.app/47839tboxc8gt7x8xt5xontgbks";
+                      window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
                     }}                    
                     disabled={operationLoading}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
@@ -366,7 +366,7 @@ const Notebook = () => {
   {selectedNote.content}
 </div>
 
-              <div className="text-sm text-gray-500 mt-8 pt-4 border-t">
+              {/* <div className="text-sm text-gray-500 mt-8 pt-4 border-t">
                 <p>
                   Created: {new Date(selectedNote.created_at).toLocaleString("en-IN")}
                 </p>
@@ -375,7 +375,7 @@ const Notebook = () => {
                     Updated: {new Date(selectedNote.updated_at).toLocaleString("en-IN")}
                   </p>
                 )}
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="max-w-3xl mx-auto mt-10">
