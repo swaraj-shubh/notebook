@@ -241,7 +241,7 @@ const Notebook = () => {
         Created on: {new Date(notebook.created_at).toLocaleString("en-IN")}
       </p> */}
       
-      <div className="flex justify-between items-center mb-3">
+      {/* <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-semibold">🗒️ Notes</h2>
         <button 
           onClick={() => setShowCreateNoteModal(true)}
@@ -250,7 +250,7 @@ const Notebook = () => {
         >
           + Add New Note
         </button>
-      </div>
+      </div> */}
       
       {notebook.notes && notebook.notes.length > 0 ? (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
