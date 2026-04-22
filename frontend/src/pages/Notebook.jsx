@@ -99,24 +99,24 @@ const Notebook = () => {
     }
   };
 
-  // const handleDeleteNote = async () => {
-  //   if (!window.confirm("Are you sure you want to delete this note? This action cannot be undone.")) {
-  //     return;
-  //   }
+  const handleDeleteNote = async () => {
+    if (!window.confirm("Are you sure you want to delete this note? This action cannot be undone.")) {
+      return;
+    }
 
-  //   setOperationLoading(true);
-  //   try {
-  //     await API.delete(`/notebooks/${id}/notes/${selectedNote._id}`);
-  //     await fetchNotebook();
-  //     setSelectedNote(null);
-  //     alert("🗑️ Note deleted successfully!");
-  //   } catch (err) {
-  //     console.error("Error deleting note:", err);
-  //     alert(err.response?.data?.detail || "Failed to delete note");
-  //   } finally {
-  //     setOperationLoading(false);
-  //   }
-  // };
+    setOperationLoading(true);
+    try {
+      await API.delete(`/notebooks/${id}/notes/${selectedNote._id}`);
+      await fetchNotebook();
+      setSelectedNote(null);
+      alert("🗑️ Note deleted successfully!");
+    } catch (err) {
+      console.error("Error deleting note:", err);
+      alert(err.response?.data?.detail || "Failed to delete note");
+    } finally {
+      setOperationLoading(false);
+    }
+  };
 
   const createNote = async () => {
     if (!newNote.title.trim()) {
@@ -237,11 +237,11 @@ const Notebook = () => {
       
       <h1 className="text-2xl font-bold mb-2 truncate">{notebook.title}</h1>
       <p className="text-gray-600 mb-2">{notebook.description || "No description"}</p>
-      {/* <p className="text-sm text-gray-500 mb-6">
+      <p className="text-sm text-gray-500 mb-6">
         Created on: {new Date(notebook.created_at).toLocaleString("en-IN")}
-      </p> */}
+      </p>
       
-      {/* <div className="flex justify-between items-center mb-3">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-semibold">🗒️ Notes</h2>
         <button 
           onClick={() => setShowCreateNoteModal(true)}
@@ -250,7 +250,7 @@ const Notebook = () => {
         >
           + Add New Note
         </button>
-      </div> */}
+      </div>
       
       {notebook.notes && notebook.notes.length > 0 ? (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -282,12 +282,12 @@ const Notebook = () => {
                 </div>
               )}
 
-              {/* <div className="text-xs text-gray-500">
+              <div className="text-xs text-gray-500">
                 <p>Created: {new Date(note.created_at).toLocaleDateString("en-IN")}</p>
                 {note.updated_at && (
                   <p>Updated: {new Date(note.updated_at).toLocaleDateString("en-IN")}</p>
                 )}
-              </div> */}
+              </div>
             </div>
           ))}
         </div>
@@ -326,20 +326,20 @@ const Notebook = () => {
                 </h2>
                 <div className="flex gap-2">
                   <button
-                    // onClick={handleEdit}
-                    onClick={() => {
-                      window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
-                    }} 
+                    onClick={handleEdit}
+                    // onClick={() => {
+                    //   window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
+                    // }} 
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                     aria-label="Edit note"
                   >
                     Edit
                   </button>
                   <button
-                    // onClick={handleDeleteNote}
-                    onClick={() => {
-                      window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
-                    }}                    
+                    onClick={handleDeleteNote}
+                    // onClick={() => {
+                    //   window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
+                    // }}                    
                     disabled={operationLoading}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
                     aria-label="Delete note"
@@ -366,7 +366,7 @@ const Notebook = () => {
   {selectedNote.content}
 </div>
 
-              {/* <div className="text-sm text-gray-500 mt-8 pt-4 border-t">
+              <div className="text-sm text-gray-500 mt-8 pt-4 border-t">
                 <p>
                   Created: {new Date(selectedNote.created_at).toLocaleString("en-IN")}
                 </p>
@@ -375,7 +375,7 @@ const Notebook = () => {
                     Updated: {new Date(selectedNote.updated_at).toLocaleString("en-IN")}
                   </p>
                 )}
-              </div> */}
+              </div>
             </div>
           ) : (
             <div className="max-w-3xl mx-auto mt-10">

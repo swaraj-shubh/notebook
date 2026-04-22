@@ -53,29 +53,29 @@ const Home = () => {
     }
   };
 
-  // const deleteNotebook = async (notebookId, e) => {
-  //   e.stopPropagation();
-  //   if (!window.confirm("Are you sure you want to delete this notebook? This action cannot be undone.")) {
-  //     return;
-  //   }
+  const deleteNotebook = async (notebookId, e) => {
+    e.stopPropagation();
+    if (!window.confirm("Are you sure you want to delete this notebook? This action cannot be undone.")) {
+      return;
+    }
 
-  //   // Optimistic update
-  //   const previousData = [...data];
-  //   const filteredData = data.filter(item => item._id !== notebookId);
-  //   setData(filteredData);
-  //   setDeleteLoading(notebookId);
+    // Optimistic update
+    const previousData = [...data];
+    const filteredData = data.filter(item => item._id !== notebookId);
+    setData(filteredData);
+    setDeleteLoading(notebookId);
 
-  //   try {
-  //     await API.delete(`/notebooks/${notebookId}`);
-  //   } catch (error) {
-  //     // Revert on error
-  //     setData(previousData);
-  //     console.error("Error deleting notebook:", error);
-  //     alert(error.response?.data?.detail || "Failed to delete notebook");
-  //   } finally {
-  //     setDeleteLoading(null);
-  //   }
-  // };
+    try {
+      await API.delete(`/notebooks/${notebookId}`);
+    } catch (error) {
+      // Revert on error
+      setData(previousData);
+      console.error("Error deleting notebook:", error);
+      alert(error.response?.data?.detail || "Failed to delete notebook");
+    } finally {
+      setDeleteLoading(null);
+    }
+  };
 
   const handleNotebookClick = useCallback((notebookId) => {
     navigate(`/notebook/${notebookId}`);
@@ -192,15 +192,15 @@ const Home = () => {
               <p className="text-gray-600 mb-2 line-clamp-2">
                 {notebook.description || "No description provided."}
               </p>
-              {/* <p className="text-sm text-gray-500 mb-4">
+              <p className="text-sm text-gray-500 mb-4">
                 Created: {new Date(notebook.created_at).toLocaleString("en-IN")}
-              </p> */}
+              </p>
 
               <button 
-                // onClick={(e) => deleteNotebook(notebook._id, e)}
-                onClick={() => {
-                      window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
-                }}
+                onClick={(e) => deleteNotebook(notebook._id, e)}
+                // onClick={() => {
+                //       window.location.href = import.meta.env.VITE_YAHA_KUCH_NAHI_MILEGA;
+                // }}
                 disabled={deleteLoading === notebook._id}
                 className="absolute top-2 right-2 mt-2 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 aria-label={`Delete notebook: ${notebook.title}`}
